@@ -4,8 +4,8 @@
 
 # config settings
 IMAGE_NAME="golang-jasper"
-VERSION="1.23-3.6.2"
-REGISTRY="carddev81/"  # Set your registry here, e.g., "your-registry.com/"
+VERSION="1.25-3.6.2"
+REGISTRY="ghcr.io/unlockedlabs/"  # Set your registry here, e.g., "your-registry.com/"
 FULL_IMAGE_NAME="${REGISTRY}${IMAGE_NAME}:${VERSION}"
 
 echo "Building ${FULL_IMAGE_NAME}..."

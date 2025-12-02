@@ -1,10 +1,10 @@
 # Go + JasperStarter Docker Image
 
-A lightweight Docker base image combining Go 1.23 Alpine with JasperStarter for report generation.
+A lightweight Docker base image combining Go 1.25 Alpine with JasperStarter for report generation.
 
 ## What's Included
 
-- **Go 1.23** - Go programming language
+- **Go 1.25** - Go programming language
 - **OpenJDK 17** - Java runtime for JasperStarter
 - **JasperStarter 3.6.2** - Tool to run JasperReports reports
 - **Font Support** - Common fonts (FreeFont, Liberation, DejaVu) for PDF generation
@@ -12,8 +12,10 @@ A lightweight Docker base image combining Go 1.23 Alpine with JasperStarter for 
 
 ## Image Tags
 
-- `golang-jasper:1.23-3.6.2` - Version specific tag
-- `golang-jasper:latest` - Latest version
+Available on GitHub Container Registry:
+
+- `ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2` - Version specific tag
+- `ghcr.io/unlockedlabs/golang-jasper:latest` - Latest version
 
 ## Usage
 
@@ -22,7 +24,7 @@ A lightweight Docker base image combining Go 1.23 Alpine with JasperStarter for 
 Use this image as a base for your Go applications that need JasperStarter:
 
 ```dockerfile
-FROM golang-jasper:1.23-3.6.2
+FROM ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2
 
 # install your Go development tools
 RUN go install github.com/air-verse/air@v1.61.0
@@ -37,6 +39,16 @@ COPY . .
 # your application setup
 EXPOSE 8080
 CMD ["air"]
+```
+
+### Pulling the Image
+
+```bash
+# Pull the latest version
+docker pull ghcr.io/unlockedlabs/golang-jasper:latest
+
+# Pull a specific version
+docker pull ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2
 ```
 
 ### Running JasperStarter
@@ -54,29 +66,44 @@ exec.Command("jasperstarter", "process", "report.jrxml", "-f", "pdf")
 ## Building the Image
 
 ```bash
-# clone or copy this directory
-cd ~/wkspcs/golang-jasper
+# clone this repository
+git clone https://github.com/unlockedlabs/golang-jasperstarter-docker.git
+cd golang-jasperstarter-docker
 
 # build using the script
 ./build.sh
 
 # or build manually
-docker build -t golang-jasper:1.23-3.6.2 .
-docker tag golang-jasper:1.23-3.6.2 golang-jasper:latest
+docker build -t ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2 .
+docker tag ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2 ghcr.io/unlockedlabs/golang-jasper:latest
 ```
 
 ## Pushing to Registry
 
-Edit the `REGISTRY` variable in `build.sh` or specify it when building:
+The image is automatically built and pushed to GitHub Container Registry via GitHub Actions on every push to `main` and on version tags.
+
+### Manual Push
+
+Set your GitHub token and run the build script:
 
 ```bash
-# for Docker Hub
-REGISTRY="yourusername/"
+export GITHUB_TOKEN=ghp_your_token_here
 ./build.sh
+```
 
-# for private registry
-REGISTRY="your-registry.com/yournamespace/"
-./build.sh
+The script will prompt you to push after building.
+
+### Automated Push (GitHub Actions)
+
+Push to the `main` branch or create a version tag:
+
+```bash
+# Trigger build on push to main
+git push origin main
+
+# Or create and push a version tag
+git tag v1.25-3.6.2
+git push origin v1.25-3.6.2
 ```
 
 ## Verification
@@ -84,7 +111,8 @@ REGISTRY="your-registry.com/yournamespace/"
 Test the installation:
 
 ```bash
-docker run --rm golang-jasper:1.23-3.6.2 jasperstarter --version
+docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2 go version
+docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.25-3.6.2 jasperstarter --version
 ```
 
 ## Size Optimization
@@ -104,3 +132,18 @@ The image includes common fonts for PDF generation:
 - DejaVu family
 
 Font cache is updated during image build for optimal performance.
+
+## License
+
+This Dockerfile is released under the MIT License. See [LICENSE](LICENSE) for details.
+
+The image includes third-party software with their respective licenses:
+
+- Go: BSD-3-Clause License
+- JasperStarter: Apache-2.0 License
+
+See [NOTICES](NOTICES) for complete third-party license information.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

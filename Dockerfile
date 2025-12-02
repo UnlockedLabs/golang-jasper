@@ -2,13 +2,13 @@
 # Contains Go programming language and JasperStarter for JasperReports
 # See NOTICES file for third-party software licenses
 
-FROM golang:1.23.5-alpine
+FROM golang:1.25-alpine
 
 LABEL maintainer="rich@unlockedlabs.com"
 LABEL org.opencontainers.image.title="Go with JasperStarter"
-LABEL org.opencontainers.image.description="Go 1.23 Alpine with JasperStarter 3.6.2 pre-installed"
-LABEL org.opencontainers.image.version="1.23-3.6.2"
-LABEL org.opencontainers.image.source="https://github.com/unlockedlabs/golang-jasperstarter-docker"
+LABEL org.opencontainers.image.description="Go 1.25 Alpine with JasperStarter 3.6.2 pre-installed"
+LABEL org.opencontainers.image.version="1.25-3.6.2"
+LABEL org.opencontainers.image.source="https://github.com/UnlockedLabs/golang-jasper"
 LABEL org.opencontainers.image.licenses="MIT (Dockerfile), BSD-3-Clause (Go), Apache-2.0 (JasperStarter)"
 
 # install Java and dependencies needed for JasperStarter
@@ -33,6 +33,8 @@ RUN mkdir -p /opt/jasperstarter && \
     rm -rf /tmp/jasperstarter.tar.bz2 /tmp/jasperstarter
 
 ENV PATH="/opt/jasperstarter/bin:${PATH}"
+
+RUN chmod +x /opt/jasperstarter/bin/jasperstarter
 
 COPY LICENSE NOTICES /usr/share/doc/golang-jasperstarter/
 
