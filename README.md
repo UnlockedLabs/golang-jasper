@@ -4,7 +4,7 @@ A lightweight Docker base image combining Go 1.25 Alpine with JasperStarter for 
 
 ## What's Included
 
-- **Go 1.25** - Go programming language
+- **Go 1.26.3** - Go programming language
 - **OpenJDK 17** - Java runtime for JasperStarter
 - **JasperStarter 3.6.2** - Tool to run JasperReports reports
 - **Font Support** - Common fonts (FreeFont, Liberation, DejaVu) for PDF generation
