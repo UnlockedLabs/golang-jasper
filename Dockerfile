@@ -2,12 +2,12 @@
 # Contains Go programming language and JasperStarter for JasperReports
 # See NOTICES file for third-party software licenses
 
-FROM golang:1.26.4-alpine
+FROM golang:1.26.5-alpine
 
 LABEL maintainer="rich@unlockedlabs.com"
 LABEL org.opencontainers.image.title="Go with JasperStarter"
-LABEL org.opencontainers.image.description="Go 1.26.4 Alpine with JasperStarter 3.6.2 pre-installed"
-LABEL org.opencontainers.image.version="1.26.4-3.6.2"
+LABEL org.opencontainers.image.description="Go 1.26.5 Alpine with JasperStarter 3.6.2 pre-installed"
+LABEL org.opencontainers.image.version="1.26.5-3.6.2"
 LABEL org.opencontainers.image.source="https://github.com/UnlockedLabs/golang-jasper"
 LABEL org.opencontainers.image.licenses="MIT (Dockerfile), BSD-3-Clause (Go), Apache-2.0 (JasperStarter)"
 
