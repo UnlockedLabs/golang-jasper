@@ -4,7 +4,7 @@
 
 # config settings
 IMAGE_NAME="golang-jasper"
-VERSION="1.26.5-3.6.2"
+VERSION="1.26.6-3.6.2"
 REGISTRY="ghcr.io/unlockedlabs/"  # Set your registry here, e.g., "your-registry.com/"
 FULL_IMAGE_NAME="${REGISTRY}${IMAGE_NAME}:${VERSION}"
 

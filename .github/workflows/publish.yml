@@ -36,7 +36,7 @@ jobs:
                   tags: |
                       type=semver,pattern={{version}}
                       type=raw,value=latest
-                      type=raw,value=1.25-3.6.2
+                      type=raw,value=1.26-3.6.2
 
             - name: Build and push
               uses: docker/build-push-action@v5

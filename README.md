@@ -1,10 +1,10 @@
 # Go + JasperStarter Docker Image
 
-A lightweight Docker base image combining Go 1.26.5 Alpine with JasperStarter for report generation.
+A lightweight Docker base image combining Go 1.26.6 Alpine with JasperStarter for report generation.
 
 ## What's Included
 
-- **Go 1.26.5** - Go programming language
+- **Go 1.26.6** - Go programming language
 - **OpenJDK 17** - Java runtime for JasperStarter
 - **JasperStarter 3.6.2** - Tool to run JasperReports reports
 - **Font Support** - Common fonts (FreeFont, Liberation, DejaVu) for PDF generation
@@ -14,7 +14,7 @@ A lightweight Docker base image combining Go 1.26.5 Alpine with JasperStarter fo
 
 Available on GitHub Container Registry:
 
-- `ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2` - Version specific tag
+- `ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2` - Version specific tag
 - `ghcr.io/unlockedlabs/golang-jasper:latest` - Latest version
 
 ## Usage
@@ -24,7 +24,7 @@ Available on GitHub Container Registry:
 Use this image as a base for your Go applications that need JasperStarter:
 
 ```dockerfile
-FROM ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2
+FROM ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2
 
 # install your Go development tools
 RUN go install github.com/air-verse/air@v1.61.0
@@ -48,7 +48,7 @@ CMD ["air"]
 docker pull ghcr.io/unlockedlabs/golang-jasper:latest
 
 # Pull a specific version
-docker pull ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2
+docker pull ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2
 ```
 
 ### Running JasperStarter
@@ -74,8 +74,8 @@ cd golang-jasperstarter-docker
 ./build.sh
 
 # or build manually
-docker build -t ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2 .
-docker tag ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2 ghcr.io/unlockedlabs/golang-jasper:latest
+docker build -t ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2 .
+docker tag ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2 ghcr.io/unlockedlabs/golang-jasper:latest
 ```
 
 ## Pushing to Registry
@@ -102,8 +102,8 @@ Push to the `main` branch or create a version tag:
 git push origin main
 
 # Or create and push a version tag
-git tag v1.26.5-3.6.2
-git push origin v1.26.5-3.6.2
+git tag v1.26.6-3.6.2
+git push origin v1.26.6-3.6.2
 ```
 
 ## Verification
@@ -111,8 +111,8 @@ git push origin v1.26.5-3.6.2
 Test the installation:
 
 ```bash
-docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2 go version
-docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.26.5-3.6.2 jasperstarter --version
+docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2 go version
+docker run --rm ghcr.io/unlockedlabs/golang-jasper:1.26.6-3.6.2 jasperstarter --version
 ```
 
 ## Size Optimization
